@@ -1,11 +1,11 @@
-# react-native-modal-view
+# @nguyentc21/react-native-modal-view
 
 React native Modal view
 
 ## Installation
 
 ```sh
-yarn add react-native-modal-view
+yarn add @nguyentc21/react-native-modal-view
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ yarn add react-native-modal-view
 In your root-level component.
 
 ```tsx
-import ModalView from 'react-native-modal-view';
+import ModalView from '@nguyentc21/react-native-modal-view';
 // ...
 const App = () => {
   return (
@@ -28,7 +28,7 @@ const App = () => {
 Other View
 ```tsx
 // ...
-import { NestedModal, Modal } from 'react-native-modal-view';
+import { NestedModal, Modal } from '@nguyentc21/react-native-modal-view';
 // ...
 
 const ModalContent = () => {
