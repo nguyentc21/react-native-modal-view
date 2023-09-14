@@ -1,5 +1,5 @@
 {
-  "name": "react-native-modal-view",
+  "name": "@nguyentc21/react-native-modal-view",
   "version": "1.0.0",
   "description": "React native Modal view",
   "main": "lib/commonjs/index",
@@ -37,6 +37,8 @@
   },
   "keywords": [
     "react-native",
+    "@nguyentc21/react-native-modal-view",
+    "@nguyentc21/react-native-modal",
     "react-native-modal-view",
     "react-native-modal",
     "modal-view"
