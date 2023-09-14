@@ -1751,6 +1751,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@nguyentc21/event-listener@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@nguyentc21/event-listener/-/event-listener-1.0.0.tgz#97a73abe0abc9470d11a8055a0ac1c6bd337ecf1"
+  integrity sha512-jzaz1ujwPmf0pOCmFHYFxNFAFrBFxi32+vr0NS2xobGgMJFoDES1pvLA3y4J29YnrAM6twfncY+5PJD5kKyzQg==
+
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":
   version "5.1.1-v1"
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz#dbf733a965ca47b1973177dc0bb6c889edcfb129"
@@ -7249,11 +7254,6 @@ npm-run-path@^5.1.0:
   integrity sha512-sJOdmRGrY2sjNTRMbSvluQqg+8X7ZK61yvzBEIDhz4f8z1TZFYABsqjjCBd/0PUNE9M6QDgHJXQkGUEm7Q+l9Q==
   dependencies:
     path-key "^4.0.0"
-
-ntc-event-listener@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ntc-event-listener/-/ntc-event-listener-1.0.0.tgz#991358ecf95417fd45b5ef72b49bad7a7ecb596b"
-  integrity sha512-5TvGpgG6319u50woM0wYqa5vhCrm+xUWywGve9wlU36seVTDFc6P4PKB6ud8USIPGLazj3jz7J2xWb0RJ4R1dQ==
 
 nullthrows@^1.1.1:
   version "1.1.1"
