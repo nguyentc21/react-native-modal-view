@@ -19,7 +19,10 @@ const App = () => {
   return (
     // ...
     // This will contain all your nested modals
-    <ModalView /> // should be on bottom
+    <ModalView // should be on bottom
+      visible={true}
+      // containerStyle={{}}
+    />
   );
 };
 // ...
@@ -106,7 +109,6 @@ const NiceView = (props: Props) => {
 | onOpen         | (id?: string) => void                     |                                    | Called when the modal start show animation begins                                         |
 | onDidOpen      | (id?: string) => void                     |                                    | Called when the modal is completely visible                                               |
 | onClose        | (id?: string) => void                     |                                    | Called when the modal is completely hidden                                                |
-| edges          | (top' \| 'bottom' \| 'left' \| 'right')[] |                                    | https://github.com/th3rdwave/react-native-safe-area-context#edges                         |
 | children       | ReactNode                                 |                                    | Your modal content                                                                        |
 | containerStyle | ViewStyle                                 |                                    |                                                                                           |
 | backdropStyle  | ViewStyle                                 |                                    |                                                                                           |

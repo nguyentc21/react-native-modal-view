@@ -1,6 +1,6 @@
 {
   "name": "@nguyentc21/react-native-modal-view",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "React native Modal view",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -55,8 +55,7 @@
   },
   "dependencies": {
     "@nguyentc21/event-listener": "^1.0.0",
-    "react-native-ntc-pressable": "^1.0.0",
-    "react-native-safe-area-context": "^4.1.2"
+    "react-native-ntc-pressable": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Animated, useWindowDimensions } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TouchableWithoutFeedback } from 'react-native-ntc-pressable';
 
 import { generateId } from '../functions';
@@ -26,7 +25,6 @@ const ModalView = (props: ModalViewProps) => {
     maxHeight,
     onMainContentLayout,
     blurToClose = true,
-    edges,
     children,
     wrapContent,
   } = props;
@@ -41,22 +39,6 @@ const ModalView = (props: ModalViewProps) => {
 
   const { height } = useWindowDimensions();
   const _maxHeight = maxHeight ? maxHeight : height * DEFAULT_HEIGHT_RATIO;
-
-  const safeAreaInsets = useSafeAreaInsets();
-  const safeViewStyle = useMemo(() => {
-    return edges?.map((i) => {
-      switch (i) {
-        case 'top':
-          return { paddingTop: safeAreaInsets.top };
-        case 'bottom':
-          return { paddingBottom: safeAreaInsets.bottom };
-        case 'left':
-          return { paddingLeft: safeAreaInsets.left };
-        case 'right':
-          return { paddingRight: safeAreaInsets.right };
-      }
-    });
-  }, [edges, safeAreaInsets]);
 
   useEffect(() => {
     if (visible) {
@@ -159,7 +141,6 @@ const ModalView = (props: ModalViewProps) => {
             overflow: 'hidden',
             maxHeight: _maxHeight,
           },
-          safeViewStyle,
           containerStyle,
         ]}
         onLayout={_onModalContentLayout}

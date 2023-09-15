@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Animated,
   TouchableWithoutFeedback,
   useWindowDimensions,
 } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { generateId } from '../functions';
 import styles from '../styles';
@@ -29,7 +28,6 @@ const SliderModal = (props: ModalViewProps) => {
     onDidOpen,
     onClose,
     onMainContentLayout,
-    edges,
     children,
     wrapContent,
     blurToClose = true,
@@ -42,7 +40,6 @@ const SliderModal = (props: ModalViewProps) => {
   });
 
   const { height } = useWindowDimensions();
-  const safeAreaInsets = useSafeAreaInsets();
 
   const [state] = useState({
     backdropOpacity: new Animated.Value(0),
@@ -50,21 +47,6 @@ const SliderModal = (props: ModalViewProps) => {
   });
   const [contentLayout, setContentLayout] = useState({ height });
   const [visibleState, setVisibleState] = useState(false);
-
-  const safeViewStyle = useMemo(() => {
-    return edges?.map((i) => {
-      switch (i) {
-        case 'top':
-          return { paddingTop: safeAreaInsets.top };
-        case 'bottom':
-          return { paddingBottom: safeAreaInsets.bottom };
-        case 'left':
-          return { paddingLeft: safeAreaInsets.left };
-        case 'right':
-          return { paddingRight: safeAreaInsets.right };
-      }
-    });
-  }, [edges, safeAreaInsets]);
 
   useEffect(() => {
     if (visible) {
@@ -186,7 +168,6 @@ const SliderModal = (props: ModalViewProps) => {
             borderTopRightRadius: 20,
             transform: [{ translateY: state.contentTranslateY }],
           },
-          safeViewStyle,
           containerStyle,
         ]}
         onLayout={_onModalContentLayout}
