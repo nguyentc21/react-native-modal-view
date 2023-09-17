@@ -10,7 +10,7 @@ import styles from '../styles';
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { NestedModalProps } from '../types';
 
-const MainModal = memo<{ visible: boolean; wrapStyle?: StyleProp<ViewStyle> }>(
+const MainModal = memo<{ visible?: boolean; wrapStyle?: StyleProp<ViewStyle> }>(
   (props) => {
     const { visible = true, wrapStyle } = props;
     const [modalListState, setModalListState] = useState<NestedModalProps[]>(
