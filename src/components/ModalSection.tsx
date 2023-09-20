@@ -10,9 +10,19 @@ import styles from '../styles';
 import type { StyleProp, ViewStyle } from 'react-native';
 import type { NestedModalProps } from '../types';
 
-const MainModal = memo<{ visible?: boolean; wrapStyle?: StyleProp<ViewStyle> }>(
+const MainModal = memo<{
+  visible?: boolean;
+  wrapStyle?: StyleProp<ViewStyle>;
+  defaultModalProps?: Partial<NestedModalProps>;
+}>(
   (props) => {
-    const { visible = true, wrapStyle } = props;
+    const { visible = true, wrapStyle, defaultModalProps } = props;
+    const {
+      containerStyle: defaultContainerStyle,
+      wrapContainerStyle: defaultWrapContainerStyle,
+      backdropStyle: defaultBackdropStyle,
+      ..._defaultModalProps
+    } = defaultModalProps || {};
     const [modalListState, setModalListState] = useState<NestedModalProps[]>(
       []
     );
@@ -67,11 +77,25 @@ const MainModal = memo<{ visible?: boolean; wrapStyle?: StyleProp<ViewStyle> }>(
     return (
       <View style={[styles.modalWrapContainer, wrapStyle]}>
         {modalListState.map((item) => {
-          const { id, modalType, ..._modalProps } = item;
+          const {
+            id,
+            modalType,
+            containerStyle,
+            wrapContainerStyle,
+            backdropStyle,
+            ..._modalProps
+          } = item;
           if (modalType === 'slide') {
             return (
               <SliderModalView
                 key={id}
+                containerStyle={[defaultContainerStyle, containerStyle]}
+                wrapContainerStyle={[
+                  defaultWrapContainerStyle,
+                  wrapContainerStyle,
+                ]}
+                backdropStyle={[defaultBackdropStyle, backdropStyle]}
+                {..._defaultModalProps}
                 {..._modalProps}
                 onClose={_onCloseModal(item)}
               />
@@ -81,6 +105,13 @@ const MainModal = memo<{ visible?: boolean; wrapStyle?: StyleProp<ViewStyle> }>(
             <ModalView
               key={id}
               maxHeight={'80%'}
+              containerStyle={[defaultContainerStyle, containerStyle]}
+              wrapContainerStyle={[
+                defaultWrapContainerStyle,
+                wrapContainerStyle,
+              ]}
+              backdropStyle={[defaultBackdropStyle, backdropStyle]}
+              {..._defaultModalProps}
               {..._modalProps}
               onClose={_onCloseModal(item)}
             />
