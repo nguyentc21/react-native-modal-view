@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Animated,
-  TouchableWithoutFeedback,
   useWindowDimensions,
 } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-ntc-pressable';
 
 import { generateId } from '../functions';
 import styles from '../styles';

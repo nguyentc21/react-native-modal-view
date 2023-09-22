@@ -5,7 +5,7 @@ import { generateId } from '../functions';
 
 import type { NestedModalProps } from '../types';
 
-const StaticNestedModal = (
+const NestedModal = (
   props: Omit<NestedModalProps, 'id'> & {
     id?: NestedModalProps['id'];
     updateKey?: number | string;
@@ -50,4 +50,4 @@ const StaticNestedModal = (
   return null;
 };
 
-export default StaticNestedModal;
+export default NestedModal;
