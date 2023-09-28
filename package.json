@@ -1,6 +1,6 @@
 {
   "name": "@nguyentc21/react-native-modal-view",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "React native Modal view",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -37,6 +37,7 @@
   },
   "keywords": [
     "react-native",
+    "nguyentc21",
     "@nguyentc21/react-native-modal-view",
     "@nguyentc21/react-native-modal",
     "react-native-modal-view",
@@ -144,11 +145,13 @@
     "lib/"
   ],
   "prettier": {
-    "quoteProps": "consistent",
+    "arrowParens": "always",
+    "bracketSameLine": true,
+    "bracketSpacing": true,
     "singleQuote": true,
+    "trailingComma": "all",
     "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
+    "semi": true
   },
   "react-native-builder-bob": {
     "source": "src",
