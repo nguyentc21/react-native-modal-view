@@ -22,15 +22,13 @@ const Main = () => {
         }}
         onPress={() => {
           setModalVisible1(true);
-        }}
-      >
+        }}>
         <Text style={{ color: 'white' }}>OPEN MODAL 1</Text>
       </Pressable>
       <MyModal
         visible={modalVisible1}
         close={() => setModalVisible1(false)}
-        label="MODAL 1"
-      >
+        label="MODAL 1">
         <Pressable
           style={{
             padding: 10,
@@ -40,8 +38,7 @@ const Main = () => {
           }}
           onPress={() => {
             setModalVisible2(true);
-          }}
-        >
+          }}>
           <Text style={{ color: 'white' }}>OPEN MODAL 2</Text>
         </Pressable>
       </MyModal>
@@ -50,8 +47,7 @@ const Main = () => {
         modalType="slide"
         visible={modalVisible2}
         close={() => setModalVisible2(false)}
-        label="MODAL 2"
-      >
+        label="MODAL 2">
         <Pressable
           style={{
             padding: 10,
@@ -61,8 +57,7 @@ const Main = () => {
           }}
           onPress={() => {
             setModalVisible3(true);
-          }}
-        >
+          }}>
           <Text style={{ color: 'white' }}>OPEN MODAL 3</Text>
         </Pressable>
       </MyModal>
@@ -71,8 +66,7 @@ const Main = () => {
         // modalType='slide'
         visible={modalVisible3}
         close={() => setModalVisible3(false)}
-        label="MODAL 3"
-      >
+        label="MODAL 3">
         <View style={{ alignSelf: 'center', padding: 60 }}>
           <Text style={{ fontWeight: 'bold' }}>Hello world!!</Text>
         </View>

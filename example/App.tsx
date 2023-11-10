@@ -12,8 +12,7 @@ const App = () => {
         style={{
           flex: 1,
           padding: 50,
-        }}
-      >
+        }}>
         <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>
           APP
         </Text>

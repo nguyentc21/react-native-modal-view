@@ -22,5 +22,8 @@ export type ModalType = 'fade' | 'slide';
 export type NestedModalProps = ModalViewProps & {
   id?: string;
   modalType?: ModalType;
+  autoTransform?: boolean;
+  transformBreakPoint?: number;
   updateKey?: number | string;
+  extraData?: any;
 };

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 
 import ModalView from './ModalView';
 import SliderModalView from './SliderModalView';
 
 import EventRegister from './EvenRegister';
+import {
+  getAutoTransformWidth,
+  getAutoTransformModalType,
+} from '../functions';
 import styles from '../styles';
 
 import type { StyleProp, ViewStyle } from 'react-native';
@@ -16,6 +20,7 @@ const MainModal = (props: {
   defaultModalProps?: Partial<NestedModalProps>;
 }) => {
   const { visible = true, wrapStyle, defaultModalProps } = props;
+  const { width, height } = useWindowDimensions();
   const {
     containerStyle: defaultContainerStyle,
     wrapContainerStyle: defaultWrapContainerStyle,
@@ -76,9 +81,24 @@ const MainModal = (props: {
           containerStyle,
           wrapContainerStyle,
           backdropStyle,
+          autoTransform,
+          transformBreakPoint,
           ..._modalProps
         } = item;
-        if (modalType === 'slide') {
+        const _modalType = getAutoTransformModalType(
+          !!autoTransform,
+          modalType,
+          width,
+        );
+        const _modalContentStyles: ViewStyle | undefined =
+          !!autoTransform && _modalType === 'fade'
+            ? {
+                width: getAutoTransformWidth(width, transformBreakPoint),
+                marginTop: 'auto',
+                marginBottom: height * 0.1,
+              }
+            : undefined;
+        if (_modalType === 'slide') {
           return (
             <SliderModalView
               key={id}
@@ -98,7 +118,11 @@ const MainModal = (props: {
           <ModalView
             key={id}
             maxHeight={'80%'}
-            containerStyle={[defaultContainerStyle, containerStyle]}
+            containerStyle={[
+              defaultContainerStyle,
+              _modalContentStyles,
+              containerStyle,
+            ]}
             wrapContainerStyle={[defaultWrapContainerStyle, wrapContainerStyle]}
             backdropStyle={[defaultBackdropStyle, backdropStyle]}
             {..._defaultModalProps}

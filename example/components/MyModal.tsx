@@ -24,8 +24,7 @@ const MyModalContent = (props: Props) => {
           fontWeight: 'bold',
           textAlign: 'center',
           marginBottom: 30,
-        }}
-      >
+        }}>
         {label}
       </Text>
       <Text style={{ fontSize: 18, textAlign: 'center' }}>COUNT: {count}</Text>
@@ -36,8 +35,7 @@ const MyModalContent = (props: Props) => {
           backgroundColor: '#33ccaa',
           marginTop: 10,
         }}
-        onPress={() => setCount((c) => c + 1)}
-      >
+        onPress={() => setCount((c) => c + 1)}>
         <Text>COUNT + 1</Text>
       </Pressable>
 
@@ -48,8 +46,7 @@ const MyModalContent = (props: Props) => {
           backgroundColor: '#dd6719',
           marginTop: 20,
         }}
-        onPress={() => setModalVisible1(true)}
-      >
+        onPress={() => setModalVisible1(true)}>
         <Text>Open inside-modal</Text>
       </Pressable>
 
@@ -61,8 +58,7 @@ const MyModalContent = (props: Props) => {
           padding: 40,
         }}
         visible={modalVisible1}
-        close={() => setModalVisible1(false)}
-      >
+        close={() => setModalVisible1(false)}>
         <InsideModalContent label={label} />
       </NestedModal>
     </>
@@ -85,8 +81,7 @@ const InsideModalContent = (props: { label: string }) => {
           backgroundColor: '#33ccaa',
           marginTop: 10,
         }}
-        onPress={() => setCount((c) => c + 1)}
-      >
+        onPress={() => setCount((c) => c + 1)}>
         <Text>COUNT + 1</Text>
       </Pressable>
     </>

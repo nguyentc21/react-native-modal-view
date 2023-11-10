@@ -64,7 +64,7 @@ const NiceView = (props: Props) => {
       visible={nestedModalVisible}
       close={() => { setNestedModalVisible(false )}}
       containerStyle={{ backgroundColor: 'grey', padding: 50 }}
-      // updateKey={dynamicValue} // change value will help this modal re-render
+      // extraData={dynamicValue} // change value will help this modal re-render
     >
       <Text>
         This is your app modal

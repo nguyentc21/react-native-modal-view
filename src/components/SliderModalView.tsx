@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  View,
-  Animated,
-  useWindowDimensions,
-} from 'react-native';
+import { View, Animated, useWindowDimensions } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-ntc-pressable';
 
 import { generateId } from '../functions';
@@ -138,12 +134,10 @@ const SliderModal = (props: ModalViewProps) => {
           justifyContent: 'flex-end',
         },
         wrapContainerStyle,
-      ]}
-    >
+      ]}>
       <TouchableWithoutFeedback
         onPress={_onBackdropPress}
-        disabled={!blurToClose}
-      >
+        disabled={!blurToClose}>
         <View
           style={[
             {
@@ -170,8 +164,7 @@ const SliderModal = (props: ModalViewProps) => {
           },
           containerStyle,
         ]}
-        onLayout={_onModalContentLayout}
-      >
+        onLayout={_onModalContentLayout}>
         {children}
       </Animated.View>
       {wrapContent}

@@ -9,7 +9,8 @@ const NestedModal = (
   props: Omit<NestedModalProps, 'id'> & {
     id?: NestedModalProps['id'];
     updateKey?: number | string;
-  }
+    extraData?: any;
+  },
 ) => {
   const myModalIdRef = useRef(generateId()).current;
 
@@ -39,6 +40,10 @@ const NestedModal = (
       _refreshModalContent();
     }
   }, [props.updateKey]);
+
+  useEffect(() => {
+    _refreshModalContent();
+  }, [props.extraData]);
 
   const _refreshModalContent = () => {
     EventRegister.emit('update-nested-modal', {
