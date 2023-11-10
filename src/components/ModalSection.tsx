@@ -5,10 +5,7 @@ import ModalView from './ModalView';
 import SliderModalView from './SliderModalView';
 
 import EventRegister from './EvenRegister';
-import {
-  getAutoTransformWidth,
-  getAutoTransformModalType,
-} from '../functions';
+import { getAutoTransformWidth, getAutoTransformModalType } from '../functions';
 import styles from '../styles';
 
 import type { StyleProp, ViewStyle } from 'react-native';
@@ -89,6 +86,7 @@ const MainModal = (props: {
           !!autoTransform,
           modalType,
           width,
+          transformBreakPoint,
         );
         const _modalContentStyles: ViewStyle | undefined =
           !!autoTransform && _modalType === 'fade'

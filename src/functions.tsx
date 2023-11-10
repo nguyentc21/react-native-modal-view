@@ -10,8 +10,11 @@ export const getAutoTransformModalType = (
   autoTransform: boolean,
   modalType: NestedModalProps['modalType'],
   width: number,
+  breakPoint?: number,
 ) => {
-  return !!autoTransform && width > DEFAULT_BREAK_POINT ? 'fade' : modalType;
+  const _breakPoint =
+    breakPoint == undefined ? DEFAULT_BREAK_POINT : breakPoint;
+  return !!autoTransform && width > _breakPoint ? 'fade' : modalType;
 };
 
 export const getAutoTransformWidth = (width: number, breakPoint?: number) => {
