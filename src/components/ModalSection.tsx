@@ -94,6 +94,8 @@ const MainModal = (props: {
                 width: getAutoTransformWidth(width, transformBreakPoint),
                 marginTop: 'auto',
                 marginBottom: height * 0.1,
+                paddingLeft: 0,
+                paddingRight: 0,
               }
             : undefined;
         if (_modalType === 'slide') {
