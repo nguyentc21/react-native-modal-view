@@ -17,7 +17,7 @@ const MainModal = (props: {
   defaultModalProps?: Partial<NestedModalProps>;
 }) => {
   const { visible = true, wrapStyle, defaultModalProps } = props;
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const {
     containerStyle: defaultContainerStyle,
     wrapContainerStyle: defaultWrapContainerStyle,
