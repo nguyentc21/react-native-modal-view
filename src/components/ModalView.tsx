@@ -9,7 +9,7 @@ import type { LayoutChangeEvent } from 'react-native';
 import type { ModalViewProps } from '../types';
 
 const ANIMATION_DURATION = 200;
-const DEFAULT_HEIGHT_RATIO = 0.6;
+const DEFAULT_HEIGHT_RATIO = 0.7;
 
 const ModalView = (props: ModalViewProps) => {
   const {
@@ -23,6 +23,7 @@ const ModalView = (props: ModalViewProps) => {
     onDidOpen,
     onClose,
     maxHeight,
+    keyboardHeight,
     onMainContentLayout,
     blurToClose = true,
     children,
@@ -39,6 +40,7 @@ const ModalView = (props: ModalViewProps) => {
 
   const { height } = useWindowDimensions();
   const _maxHeight = maxHeight ? maxHeight : height * DEFAULT_HEIGHT_RATIO;
+  const _marginBottom = !keyboardHeight ? height * 0.15 : keyboardHeight + 10;
 
   useEffect(() => {
     if (visible) {
@@ -98,10 +100,12 @@ const ModalView = (props: ModalViewProps) => {
     close?.();
   };
 
-  const _onModalContentLayout = (e: LayoutChangeEvent): void => {
-    e.persist();
-    onMainContentLayout?.(e, localData.current.id);
-  };
+  const _onModalContentLayout = onMainContentLayout
+    ? (e: LayoutChangeEvent): void => {
+        e.persist();
+        onMainContentLayout(e, localData.current.id);
+      }
+    : undefined;
 
   if (!visibleState) return null;
 
@@ -111,12 +115,10 @@ const ModalView = (props: ModalViewProps) => {
         styles.modalWrapContainer,
         { opacity: backdropOpacityState },
         wrapContainerStyle,
-      ]}
-    >
+      ]}>
       <TouchableWithoutFeedback
         onPress={_onBackdropPress}
-        disabled={!blurToClose}
-      >
+        disabled={!blurToClose}>
         <View
           style={[
             {
@@ -134,7 +136,8 @@ const ModalView = (props: ModalViewProps) => {
         style={[
           {
             backgroundColor: '#fff',
-            marginTop: height * 0.1,
+            marginTop: 'auto',
+            marginBottom: _marginBottom,
             width: '95%',
             alignSelf: 'center',
             borderRadius: 20,
@@ -143,8 +146,7 @@ const ModalView = (props: ModalViewProps) => {
           },
           containerStyle,
         ]}
-        onLayout={_onModalContentLayout}
-      >
+        onLayout={_onModalContentLayout}>
         {children}
       </View>
       {wrapContent}

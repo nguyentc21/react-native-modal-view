@@ -26,6 +26,7 @@ const SliderModal = (props: ModalViewProps) => {
     onMainContentLayout,
     children,
     wrapContent,
+    keyboardHeight,
     blurToClose = true,
     maxHeight = '90%',
   } = props;
@@ -162,6 +163,7 @@ const SliderModal = (props: ModalViewProps) => {
             borderTopRightRadius: 20,
             transform: [{ translateY: state.contentTranslateY }],
           },
+          !!keyboardHeight && { paddingBottom: keyboardHeight },
           containerStyle,
         ]}
         onLayout={_onModalContentLayout}>

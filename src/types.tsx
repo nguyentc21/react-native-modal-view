@@ -10,6 +10,7 @@ export interface ModalViewProps {
   close?(): void;
   blurToClose?: boolean;
   maxHeight?: ViewStyle['maxHeight'];
+  keyboardHeight?: number;
   onOpen?(id?: string): void;
   onDidOpen?(id?: string): void;
   onClose?(id?: string): void;
