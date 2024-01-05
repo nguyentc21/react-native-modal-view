@@ -92,8 +92,6 @@ const MainModal = (props: {
           !!autoTransform && _modalType === 'fade'
             ? {
                 width: getAutoTransformWidth(width, transformBreakPoint),
-                marginTop: 'auto',
-                marginBottom: height * 0.1,
                 paddingLeft: 0,
                 paddingRight: 0,
               }
@@ -117,7 +115,6 @@ const MainModal = (props: {
         return (
           <ModalView
             key={id}
-            maxHeight={'80%'}
             containerStyle={[
               defaultContainerStyle,
               _modalContentStyles,

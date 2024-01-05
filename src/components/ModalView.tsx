@@ -135,7 +135,7 @@ const ModalView = (props: ModalViewProps) => {
       <View
         style={[
           {
-            backgroundColor: '#fff',
+            backgroundColor: '#ffffff',
             marginTop: 'auto',
             marginBottom: _marginBottom,
             width: '95%',
@@ -143,6 +143,7 @@ const ModalView = (props: ModalViewProps) => {
             borderRadius: 20,
             overflow: 'hidden',
             maxHeight: _maxHeight,
+            flexShrink: 1,
           },
           containerStyle,
         ]}

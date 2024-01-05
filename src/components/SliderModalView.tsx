@@ -155,16 +155,17 @@ const SliderModal = (props: ModalViewProps) => {
       <Animated.View
         style={[
           {
-            backgroundColor: '#fff',
+            backgroundColor: '#ffffff',
             width: '100%',
             maxHeight,
             overflow: 'hidden',
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
+            flexShrink: 1,
             transform: [{ translateY: state.contentTranslateY }],
           },
-          !!keyboardHeight && { paddingBottom: keyboardHeight },
           containerStyle,
+          !!keyboardHeight && { paddingBottom: keyboardHeight },
         ]}
         onLayout={_onModalContentLayout}>
         {children}
