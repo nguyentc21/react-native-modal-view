@@ -146,7 +146,11 @@ const ModalView = (props: ModalViewProps) => {
             maxHeight: _maxHeight,
             flexShrink: 1,
           },
-          !!safeAreaInsets && !!keyboardHeight && { top: safeAreaInsets.top },
+          !!safeAreaInsets &&
+            !!keyboardHeight && {
+              top: safeAreaInsets.top,
+              marginBottom: _marginBottom + safeAreaInsets.top,
+            },
           containerStyle,
         ]}
         onLayout={_onModalContentLayout}>
