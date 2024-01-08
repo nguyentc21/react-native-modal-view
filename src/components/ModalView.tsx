@@ -24,6 +24,7 @@ const ModalView = (props: ModalViewProps) => {
     onClose,
     maxHeight,
     keyboardHeight,
+    safeAreaInsets,
     onMainContentLayout,
     blurToClose = true,
     children,
@@ -145,6 +146,7 @@ const ModalView = (props: ModalViewProps) => {
             maxHeight: _maxHeight,
             flexShrink: 1,
           },
+          !!safeAreaInsets && !!keyboardHeight && { top: safeAreaInsets.top },
           containerStyle,
         ]}
         onLayout={_onModalContentLayout}>

@@ -1,6 +1,13 @@
 import type { LayoutChangeEvent, StyleProp, ViewStyle } from 'react-native';
 import type { ReactNode } from 'react';
 
+export type SafeAreaInsets = {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+};
+
 export interface ModalViewProps {
   containerStyle?: StyleProp<ViewStyle>;
   wrapContainerStyle?: StyleProp<ViewStyle>;
@@ -11,6 +18,7 @@ export interface ModalViewProps {
   blurToClose?: boolean;
   maxHeight?: ViewStyle['maxHeight'];
   keyboardHeight?: number;
+  safeAreaInsets?: SafeAreaInsets;
   onOpen?(id?: string): void;
   onDidOpen?(id?: string): void;
   onClose?(id?: string): void;
