@@ -29,7 +29,7 @@ const SliderModal = (props: ModalViewProps) => {
     keyboardHeight,
     safeAreaInsets,
     blurToClose = true,
-    maxHeight = '90%',
+    maxHeight = '95%',
   } = props;
 
   const myLocalData = useRef({
