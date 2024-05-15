@@ -29,6 +29,7 @@ const ModalView = (props: ModalViewProps) => {
     blurToClose = true,
     children,
     wrapContent,
+    bottomOffset,
   } = props;
 
   const localData = useRef({
@@ -41,7 +42,11 @@ const ModalView = (props: ModalViewProps) => {
 
   const { height } = useWindowDimensions();
   const _maxHeight = maxHeight ? maxHeight : height * DEFAULT_HEIGHT_RATIO;
-  const _marginBottom = !keyboardHeight ? height * 0.15 : keyboardHeight + 10;
+  const _bottomOffset = bottomOffset ?? height * 0.15;
+  const _marginBottom =
+    !keyboardHeight || keyboardHeight + 10 < _bottomOffset
+      ? _bottomOffset
+      : keyboardHeight + 10;
 
   useEffect(() => {
     if (visible) {

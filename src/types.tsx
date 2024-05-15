@@ -25,6 +25,7 @@ export interface ModalViewProps {
   onMainContentLayout?(e: LayoutChangeEvent, id?: string): void;
   children?: ReactNode;
   wrapContent?: ReactNode;
+  bottomOffset?: number;
 }
 
 export type ModalType = 'fade' | 'slide';
