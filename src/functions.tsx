@@ -20,5 +20,5 @@ export const getAutoTransformModalType = (
 export const getAutoTransformWidth = (width: number, breakPoint?: number) => {
   const _breakPoint =
     breakPoint == undefined ? DEFAULT_BREAK_POINT : breakPoint;
-  return width > _breakPoint * 1.1 ? _breakPoint : _breakPoint * 0.9;
+  return width > _breakPoint * 1.1 ? _breakPoint : width * 0.9;
 };
