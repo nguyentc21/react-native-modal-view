@@ -12,7 +12,7 @@ function FadeModalView(props: ModalViewProps) {
   const {
     wrapContainerStyle,
     backdropStyle,
-    styles,
+    style,
     containerStyle,
     contentContainerStyle,
     visible,
@@ -62,7 +62,7 @@ function FadeModalView(props: ModalViewProps) {
         pointerEvents={'box-none'}
         style={[lStyles.container, containerStyles, containerStyle]}>
         <View
-          style={[lStyles.contentContainer, styles, contentContainerStyle]}
+          style={[lStyles.contentContainer, style, contentContainerStyle]}
           onLayout={onMainContentLayout}>
           {children}
         </View>

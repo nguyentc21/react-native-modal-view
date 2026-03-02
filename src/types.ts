@@ -12,7 +12,7 @@ type ModalViewProps = {
   wrapContainerStyle?: ViewProps['style'];
   backdropStyle?: ViewProps['style'];
   containerStyle?: ViewProps['style'];
-  styles?: ViewProps['style'];
+  style?: ViewProps['style'];
   contentContainerStyle?: ViewProps['style'];
   id: string;
   visible: boolean;

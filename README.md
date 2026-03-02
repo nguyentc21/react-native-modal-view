@@ -10,108 +10,68 @@ yarn add @nguyentc21/react-native-modal-view
 
 ## Usage
 
-In your root-level component.
-
 ```tsx
-import ModalView from '@nguyentc21/react-native-modal-view';
+import ModalSection from '@nguyentc21/react-native-modal-view';
 // ...
 const App = () => {
   return (
     // ...
-    // This will contain all your nested modals
-    <ModalView // should be on bottom
-      visible={true}
-      // containerStyle={{}}
+
+    <ModalSection // should be on bottom
+      enable
+      // safeAreaInsets={safeAreaInsets}
+      // keyboardHeight={keyboardHeight}
+      // defaultModalProps={{
+      //   blurToClose: true,
+      //   styles: {
+      //     backgroundColor: '#eeeeee',
+      //     borderRadius: 0,
+      //     borderTopLeftRadius: 0,
+      //     borderTopRightRadius: 0,
+      //   },
+      //   contentContainerStyle: {
+      //     padding: 20,
+      //   },
+      // }}
     />
   );
 };
 // ...
 ```
 
-Other View
 ```tsx
 // ...
-import { NestedModal, Modal } from '@nguyentc21/react-native-modal-view';
-// ...
+import { NestedModal } from '@nguyentc21/react-native-modal-view';
 
 const ModalContent = () => {
-  const [count, setCount] = useState(0);
+  const [countState, setCountState] = useState(0);
   return (
     <>
-      <Text>
-        Otherwise, change Inside-Count will make modal content re-render, but not NiceView
-        Inside-Count: {count}
-      </Text>
+      <Text>count: {countState}</Text>
       <View>
         <Pressable
-          onPress={() => { setCount((_count) => _count + 1) }}
-        >
-          Inside-Count + 1
+          onPress={() => {
+            setCountState((_c) => _c + 1);
+          }}>
+          count + 1
         </Pressable>
       </View>
     </>
-  )
-}
-
+  );
+};
 const NiceView = (props: Props) => {
   const [nestedModalVisible, setNestedModalVisible] = useState(false);
-  const [customModalVisible, setCustomModalVisible] = useState(false);
-  const [count, setCount] = useState(0);
   // ...
   return (
     // ...
     <NestedModal
       visible={nestedModalVisible}
-      close={() => { setNestedModalVisible(false )}}
-      containerStyle={{ backgroundColor: 'grey', padding: 50 }}
-      // extraData={dynamicValue} // change value will help this modal re-render
-    >
-      <Text>
-        This is your app modal
-      <Text>
-      <Text>
-        Change Outside-Count will make NiceView re-render, but not the modal content
-        Outside-Count: {count}
-      </Text>
-      <View>
-        <Pressable
-          onPress={() => { setCount((_count) => _count + 1) }}
-        >
-          Outside-Count + 1
-        </Pressable>
-      </View>
+      close={() => setNestedModalVisible(false)}>
       <ModalContent />
     </NestedModal>
-
-    <Modal
-      // modalType={"slide"}
-      visible={customModalVisible}
-      close={() => { setCustomModalVisible(false )}}
-      containerStyle={{ backgroundColor: 'blue', padding: 10 }}
-    >
-      <Text>
-        This is your inside-component modal
-      <Text>
-    </Modal>
-    // ...
-  )
-}
+  );
+};
 ```
-
-## Props
-| Name           | Type                                      | Default                            | description                                                                               |
-|----------------|-------------------------------------------|------------------------------------|-------------------------------------------------------------------------------------------|
-| modalType      | 'fade' \| 'slide'                         | 'fade'                             |                                                                                           |
-| visible        | boolean                                   | REQUIRED                           |                                                                                           |
-| close          | () => void                                |                                    | Function help close modal. Called when the backdrop is pressed and "blurToClose" is true. |
-| blurToClose    | boolean                                   | true                               | true: On press backdrop will call the "close" function.                                   |
-| maxHeight      | ViewStyle['maxHeight']                    | Fade modal: 60%; Slide modal: 90%; |                                                                                           |
-| onOpen         | (id?: string) => void                     |                                    | Called when the modal start show animation begins                                         |
-| onDidOpen      | (id?: string) => void                     |                                    | Called when the modal is completely visible                                               |
-| onClose        | (id?: string) => void                     |                                    | Called when the modal is completely hidden                                                |
-| children       | ReactNode                                 |                                    | Your modal content                                                                        |
-| containerStyle | ViewStyle                                 |                                    |                                                                                           |
-| backdropStyle  | ViewStyle                                 |                                    |                                                                                           |
 
 ## Contributing
 

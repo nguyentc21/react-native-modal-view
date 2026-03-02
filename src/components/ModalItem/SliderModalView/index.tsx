@@ -14,7 +14,7 @@ function SliderModalView(props: ModalViewProps) {
   const {
     wrapContainerStyle,
     backdropStyle,
-    styles,
+    style,
     containerStyle,
     contentContainerStyle,
     visible,
@@ -84,7 +84,7 @@ function SliderModalView(props: ModalViewProps) {
           lStyles.containerStyle,
           containerStyles,
           containerStyle,
-          styles,
+          style,
           animatedContentStyles,
         ]}>
         <View

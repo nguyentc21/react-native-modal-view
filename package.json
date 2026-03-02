@@ -1,12 +1,18 @@
 {
   "name": "@nguyentc21/react-native-modal-view",
-  "version": "1.3.5",
+  "version": "2.0.0",
   "description": "React native Modal view",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
-  "react-native": "src/index",
-  "source": "src/index",
+  "exports": {
+    ".": {
+      "source": "./lib/module/index.js",
+      "types": "./lib/typescript/src/index.d.ts",
+      "default": "./lib/module/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "src",
     "lib",
@@ -124,20 +130,21 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@react-native-community",
-      "prettier"
+      "@react-native-community"
     ],
     "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
+      "@typescript-eslint/no-shadow": "off",
+      "no-shadow": "off",
+      "no-undef": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-native/no-inline-styles": 0,
+      "react-hooks/exhaustive-deps": "off",
+      "no-extra-boolean-cast": "off",
+      "curly": 0,
+      "eqeqeq": "off",
+      "dot-notation": "off",
+      "react/self-closing-comp": "off"
     }
   },
   "eslintIgnore": [
