@@ -1,6 +1,6 @@
 {
   "name": "@nguyentc21/react-native-modal-view",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React native Modal view",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
