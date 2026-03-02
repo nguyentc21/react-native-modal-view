@@ -8,6 +8,11 @@ type SafeAreaInsets = {
   right: number;
 };
 
+type Dimension = {
+  width: number;
+  height: number;
+};
+
 type ModalViewProps = {
   wrapContainerStyle?: ViewProps['style'];
   backdropStyle?: ViewProps['style'];
@@ -19,8 +24,8 @@ type ModalViewProps = {
   close?(): void;
   blurToClose?: boolean;
   maxHeight?: ViewStyle['maxHeight'];
-  keyboardHeight?: number;
-  safeAreaInsets?: SafeAreaInsets;
+  keyboardHeight: number;
+  safeAreaInsets: SafeAreaInsets;
   onOpen?(): void;
   onDidOpen?(): void;
   onClose?(): void;
@@ -28,23 +33,28 @@ type ModalViewProps = {
   children?: ReactNode;
   additionContent?: ReactNode;
   bottomOffset?: number;
-  dimension: {
-    width: number;
-    height: number;
-  };
+  dimension: Dimension;
   autoPadding?: boolean;
 };
 
+type LayoutData = {
+  keyboardHeight: number;
+  safeAreaInsets: SafeAreaInsets;
+  dimension: Dimension;
+};
 type ModalType = 'fade' | 'slide';
-type NestedModalProps = Omit<ModalViewProps, 'dimension'> & {
+type NestedModalProps = Omit<
+  ModalViewProps,
+  'dimension' | 'keyboardHeight' | 'safeAreaInsets'
+> & {
   modalType?: ModalType;
   autoTransform?: boolean;
   transformBreakPoint?: number;
   extraData?: unknown;
-  dimension?: {
-    width: number;
-    height: number;
-  };
+  dimension?: Dimension;
+  keyboardHeight?: number;
+  safeAreaInsets?: SafeAreaInsets;
+  getLayoutData?(data: LayoutData): void;
 };
 
 type ModalSectionProps = {
@@ -52,10 +62,7 @@ type ModalSectionProps = {
   keyboardHeight?: number;
   safeAreaInsets?: SafeAreaInsets;
   defaultModalProps?: Partial<NestedModalProps>;
-  dimension?: {
-    width: number;
-    height: number;
-  };
+  dimension?: Dimension;
 };
 
 type ModalItemProps = ModalViewProps &

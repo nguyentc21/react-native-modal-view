@@ -1,7 +1,5 @@
 import { useMemo } from 'react';
 
-import { useLayoutContext } from '../../../contexts/LayoutContext';
-
 import type { ViewProps } from 'react-native';
 import type { ModalViewProps } from '../../../types';
 
@@ -17,30 +15,31 @@ const useStyles = (
 } => {
   const { maxHeight, keyboardHeight, safeAreaInsets, autoPadding } = props;
 
-  const {
-    keyboardHeight: keyboardHeightContextValue,
-    safeAreaInsets: safeAreaInsetsContextValue,
-  } = useLayoutContext();
-  const _keyboardHeight = keyboardHeight ?? keyboardHeightContextValue;
-  const _safeAreaInsets = safeAreaInsets ?? safeAreaInsetsContextValue;
-
   return useMemo(() => {
     return {
       containerStyles: [
         {
           maxHeight,
           marginTop:
-            autoPadding && _safeAreaInsets.top ? _safeAreaInsets.top + 8 : 10,
+            autoPadding && safeAreaInsets.top ? safeAreaInsets.top + 8 : 10,
         },
         autoPadding && {
-          paddingBottom: _safeAreaInsets.bottom,
-          paddingLeft: _safeAreaInsets.left,
-          paddingRight: _safeAreaInsets.right,
+          paddingBottom: safeAreaInsets.bottom,
+          paddingLeft: safeAreaInsets.left,
+          paddingRight: safeAreaInsets.right,
         },
-        autoPadding && !!_keyboardHeight && { paddingBottom: _keyboardHeight },
+        autoPadding && !!keyboardHeight && { paddingBottom: keyboardHeight },
       ],
     };
-  }, [maxHeight, _safeAreaInsets, _keyboardHeight, autoPadding]);
+  }, [
+    maxHeight,
+    keyboardHeight,
+    autoPadding,
+    safeAreaInsets.top,
+    safeAreaInsets.bottom,
+    safeAreaInsets.left,
+    safeAreaInsets.right,
+  ]);
 };
 
 export default useStyles;

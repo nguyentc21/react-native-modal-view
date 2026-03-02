@@ -23,21 +23,13 @@ const getAutoTransformWidth = (width: number, breakPoint?: number) => {
 const generateModalItemProps = <
   T extends Pick<
     NestedModalProps,
-    | 'contentContainerStyle'
-    | 'autoTransform'
-    | 'modalType'
-    | 'transformBreakPoint'
+    'autoTransform' | 'modalType' | 'transformBreakPoint'
   >,
 >(
   nestedModalProps: T,
   contentWidth: number,
-): T => {
-  const {
-    contentContainerStyle,
-    autoTransform,
-    modalType,
-    transformBreakPoint,
-  } = nestedModalProps;
+) => {
+  const { autoTransform, modalType, transformBreakPoint } = nestedModalProps;
   const _modalType = getAutoTransformModalType(
     !!autoTransform,
     modalType,
@@ -51,9 +43,8 @@ const generateModalItemProps = <
         }
       : undefined;
   return {
-    ...nestedModalProps,
     modalType: _modalType,
-    contentContainerStyle: [contentContainerStyle, _modalContentStyles],
+    contentContainerStyle: _modalContentStyles,
   };
 };
 
