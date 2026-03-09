@@ -23,6 +23,7 @@ function SliderModalView(props: ModalViewProps) {
     onDidOpen,
     onClose,
     onMainContentLayout,
+    onContainerLayout,
     children,
     additionContent,
     keyboardHeight,
@@ -35,12 +36,12 @@ function SliderModalView(props: ModalViewProps) {
 
   const { height } = dimension;
 
-  const [contentLayout, setContentLayout] = useState({ height });
+  const [containerLayout, setContainerLayout] = useState({ height });
 
-  const _onModalContentLayout = useStableCallback((e: LayoutChangeEvent) => {
-    onMainContentLayout?.(e);
+  const _onContainerLayout = useStableCallback((e: LayoutChangeEvent) => {
+    onContainerLayout?.(e);
     const layout = e.nativeEvent?.layout;
-    setContentLayout(layout);
+    setContainerLayout(layout);
   });
 
   const { animatedStyles, animatedContentStyles, modalVisible } = useController(
@@ -49,7 +50,7 @@ function SliderModalView(props: ModalViewProps) {
       onDidOpen,
       onDidClose: onClose,
       visible,
-      contentHeight: contentLayout.height,
+      contentHeight: containerLayout.height,
       maxHeight: height,
     },
   );
@@ -79,7 +80,7 @@ function SliderModalView(props: ModalViewProps) {
         style={[StyleSheet.absoluteFill, gStyles.backdrop, backdropStyle]}
       />
       <Animated.View
-        onLayout={_onModalContentLayout}
+        onLayout={_onContainerLayout}
         style={[
           lStyles.containerStyle,
           containerStyles,
@@ -88,6 +89,7 @@ function SliderModalView(props: ModalViewProps) {
           animatedContentStyles,
         ]}>
         <View
+          onLayout={onMainContentLayout}
           style={[
             lStyles.contentContainerStyle,
             contentContainerStyles,

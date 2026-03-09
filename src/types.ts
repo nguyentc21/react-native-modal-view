@@ -30,6 +30,7 @@ type ModalViewProps = {
   onDidOpen?(): void;
   onClose?(): void;
   onMainContentLayout?(e: LayoutChangeEvent): void;
+  onContainerLayout?(e: LayoutChangeEvent): void;
   children?: ReactNode;
   additionContent?: ReactNode;
   bottomOffset?: number;

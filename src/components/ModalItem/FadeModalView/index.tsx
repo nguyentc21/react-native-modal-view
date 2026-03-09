@@ -23,6 +23,7 @@ function FadeModalView(props: ModalViewProps) {
     maxHeight,
     keyboardHeight,
     safeAreaInsets,
+    onContainerLayout,
     onMainContentLayout,
     blurToClose = true,
     children,
@@ -60,6 +61,7 @@ function FadeModalView(props: ModalViewProps) {
       />
       <View
         pointerEvents={'box-none'}
+        onLayout={onContainerLayout}
         style={[lStyles.container, containerStyles, containerStyle]}>
         <View
           style={[lStyles.contentContainer, style, contentContainerStyle]}
