@@ -5,7 +5,7 @@ import useStableCallback from '../../../hooks/utils/useStableCallback';
 import { DEFAULT_ANIMATION_IN_DURATION } from '../../../constants';
 
 const DEFAULT_FADE_IN_ANIMATION_CONFIG = {
-  duration: DEFAULT_ANIMATION_IN_DURATION,
+  duration: DEFAULT_ANIMATION_IN_DURATION * 0.75,
   useNativeDriver: true,
 };
 const DEFAULT_FADE_OUT_ANIMATION_CONFIG = {
@@ -15,12 +15,12 @@ const DEFAULT_FADE_OUT_ANIMATION_CONFIG = {
 
 const DEFAULT_SLIDE_IN_ANIMATION_CONFIG = {
   duration: DEFAULT_ANIMATION_IN_DURATION,
-  easing: Easing.out(Easing.cubic),
+  easing: Easing.out(Easing.circle),
   useNativeDriver: true,
 };
 const DEFAULT_SLIDE_OUT_ANIMATION_CONFIG = {
-  duration: DEFAULT_ANIMATION_IN_DURATION * 0.75,
-  easing: Easing.in(Easing.cubic),
+  duration: DEFAULT_ANIMATION_IN_DURATION * 1.5,
+  easing: Easing.in(Easing.circle),
   useNativeDriver: true,
 };
 
