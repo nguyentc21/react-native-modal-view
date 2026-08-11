@@ -7,9 +7,9 @@ import { useDimensionContext } from '../../contexts/DimensionContext';
 import { useLayoutContext } from '../../contexts/LayoutContext';
 import { generateModalItemProps } from '../../functions';
 
-import type { NestedModalProps } from '../../types';
+import type { ModalItemProps } from '../../types';
 
-function ModalItem(props: NestedModalProps) {
+function ModalItem(props: ModalItemProps) {
   const {
     modalType,
     autoTransform,

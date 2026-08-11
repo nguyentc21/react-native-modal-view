@@ -1,11 +1,11 @@
 import { DEFAULT_MODAL_WIDTH_BREAKPOINT } from './constants';
 
 import type { ViewProps } from 'react-native';
-import type { NestedModalProps } from './types';
+import type { ModalItemProps } from './types';
 
 const getAutoTransformModalType = (
   autoTransform: boolean,
-  modalType: NestedModalProps['modalType'],
+  modalType: ModalItemProps['modalType'],
   width: number,
   breakPoint?: number,
 ) => {
@@ -22,7 +22,7 @@ const getAutoTransformWidth = (width: number, breakPoint?: number) => {
 
 const generateModalItemProps = <
   T extends Pick<
-    NestedModalProps,
+    ModalItemProps,
     'autoTransform' | 'modalType' | 'transformBreakPoint'
   >,
 >(

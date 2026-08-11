@@ -4,25 +4,25 @@ import EventRegister from '../services/EvenRegister';
 import { mergeProps } from '../helpers';
 import useStableCallback from './utils/useStableCallback';
 
-import type { ModalSectionProps, NestedModalProps } from '../types';
+import type { ModalSectionProps, ModalItemProps } from '../types';
 
 // ============================================================================
 // Types
 // ============================================================================
 
-type ModalState = NestedModalProps & {
+type ModalState = ModalItemProps & {
   closedAt?: number; // timestamp khi modal được đóng
 };
 
 type ModalListState = ModalState[];
 
 type ModalAction =
-  | { type: 'OPEN_MODAL'; payload: NestedModalProps }
+  | { type: 'OPEN_MODAL'; payload: ModalItemProps }
   | {
       type: 'CLOSE_MODAL';
       payload: { id: string; onClosed?(id: string): void };
     }
-  | { type: 'UPDATE_MODAL'; payload: NestedModalProps }
+  | { type: 'UPDATE_MODAL'; payload: ModalItemProps }
   | { type: 'CLEAN_UP'; payload: string };
 
 // ============================================================================
@@ -99,8 +99,8 @@ const useController = (
   const [modalListState, dispatch] = useReducer(modalReducer, []);
 
   const openModalItem = useStableCallback(
-    (nestedModalProps: NestedModalProps) => {
-      const _props = mergeProps<NestedModalProps>(
+    (nestedModalProps: ModalItemProps) => {
+      const _props = mergeProps<ModalItemProps>(
         defaultModalProps,
         nestedModalProps,
       );
@@ -122,8 +122,8 @@ const useController = (
   });
 
   const updateModalItem = useStableCallback(
-    (nestedModalProps: NestedModalProps) => {
-      const _props = mergeProps<NestedModalProps>(
+    (nestedModalProps: ModalItemProps) => {
+      const _props = mergeProps<ModalItemProps>(
         defaultModalProps,
         nestedModalProps,
       );

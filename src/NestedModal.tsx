@@ -5,7 +5,7 @@ import { generateId } from './helpers';
 
 import type { NestedModalProps } from './types';
 
-const useNestedModal = (props: Omit<NestedModalProps, 'id'>) => {
+const useNestedModal = (props: NestedModalProps) => {
   const { visible, extraData } = props;
 
   const myModalIdRef = useRef<string>();
@@ -38,7 +38,7 @@ const useNestedModal = (props: Omit<NestedModalProps, 'id'>) => {
   }, []);
 };
 
-function NestedModal(props: Omit<NestedModalProps, 'id'>) {
+function NestedModal(props: NestedModalProps) {
   useNestedModal(props);
   return null;
 }

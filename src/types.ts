@@ -44,7 +44,7 @@ type LayoutData = {
   dimension: Dimension;
 };
 type ModalType = 'fade' | 'slide';
-type NestedModalProps = Omit<
+type ModalItemProps = Omit<
   ModalViewProps,
   'dimension' | 'keyboardHeight' | 'safeAreaInsets'
 > & {
@@ -62,19 +62,19 @@ type ModalSectionProps = {
   enable: boolean;
   keyboardHeight?: number;
   safeAreaInsets?: SafeAreaInsets;
-  defaultModalProps?: Partial<NestedModalProps>;
+  defaultModalProps?: Partial<ModalItemProps>;
   dimension?: Dimension;
 };
 
-type ModalItemProps = ModalViewProps &
-  Pick<NestedModalProps, 'modalType'> &
-  Pick<ModalSectionProps, 'defaultModalProps'>;
+type NestedModalProps = Omit<ModalItemProps, 'id'> & {
+  id?: string;
+};
 
 export type {
   SafeAreaInsets,
   ModalViewProps,
   ModalType,
-  NestedModalProps,
   ModalSectionProps,
   ModalItemProps,
+  NestedModalProps,
 };
